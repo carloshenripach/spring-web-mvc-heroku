@@ -195,18 +195,17 @@ public class PessoaController {
 	public ModelAndView salvarTelefones(Telefone telefone, @PathVariable("idpessoa") Long idpessoa) {
 
 		Optional<Pessoa> pessoa = pessoaRepository.findById(idpessoa);
-		if (telefone != null && (telefone.getNumero().isEmpty() || telefone.getTipo().isEmpty()
-				|| telefone.getNumero().isBlank() || telefone.getTipo().isBlank())) {
+		if (telefone != null && (telefone.getNumero().isEmpty() || telefone.getTipo().isEmpty())) {
 			ModelAndView andView = new ModelAndView("cadastro/cadastrotelefones");
 
 			andView.addObject("telefones", telefoneRepository.findTelefoneByPessoa(idpessoa));
 			andView.addObject("pessoaobj", pessoa.get());
 			andView.addObject("telefoneobj", telefone);
 			List<String> msg = new ArrayList<String>();
-			if (telefone.getNumero().isEmpty() || telefone.getNumero().isBlank()) {
+			if (telefone.getNumero().isEmpty()) {
 				msg.add("Número deve ser informado");
 			}
-			if (telefone.getTipo().isEmpty() || telefone.getTipo().isBlank()) {
+			if (telefone.getTipo().isEmpty()) {
 				msg.add("Tipo deve ser informado");
 			}
 			andView.addObject("msg",msg);
