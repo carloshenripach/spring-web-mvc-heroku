@@ -16,7 +16,7 @@
 	<description>Starting a project for Spring Boot</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>13</java.version>
 	</properties>
 
 	<dependencies>
@@ -76,7 +76,7 @@
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 			<version>3.0.4.RELEASE</version>
-		</dependency> 
+		</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -97,6 +97,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>13</source>
+					<target>13</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
